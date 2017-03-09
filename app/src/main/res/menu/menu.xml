@@ -6,6 +6,18 @@
         android:title="@string/miperfil"
         />
     <item
+        android:id="@+id/mHoteles"
+        android:title="Hoteles"
+        />
+    <item
+        android:id="@+id/mBares"
+        android:title="Bares"
+        />
+    <item
+        android:id="@+id/mSitios"
+        android:title="Sitios turísticos"
+        />
+    <item
         android:id="@+id/mCerrar"
         android:title="@string/cerrar"
         />
