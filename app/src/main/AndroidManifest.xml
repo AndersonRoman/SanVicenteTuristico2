@@ -25,6 +25,19 @@
         <activity
             android:name=".HotelesActivity"
             android:label="@string/title_activity_hoteles"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ListaActivity" />
+        <activity
+            android:name=".DrawerActivity"
+            android:label="@string/title_activity_drawer"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".BaresActivity"
+            android:label="@string/title_activity_bares"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".SitiosTuristicosActivity"
+            android:label="@string/title_activity_sitios_turisticos"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

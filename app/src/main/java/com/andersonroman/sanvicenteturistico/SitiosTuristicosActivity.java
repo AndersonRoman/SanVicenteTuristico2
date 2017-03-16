@@ -1,9 +1,9 @@
 package com.andersonroman.sanvicenteturistico;
 
 import android.content.Intent;
-import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -20,7 +20,7 @@ import android.view.ViewGroup;
 
 import android.widget.TextView;
 
-public class HotelesActivity extends AppCompatActivity {
+public class SitiosTuristicosActivity extends AppCompatActivity {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -43,10 +43,10 @@ public class HotelesActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_hoteles);
+        setContentView(R.layout.activity_sitios_turisticos);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);//lo traigo
-        setSupportActionBar(toolbar);//lo pongo
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
@@ -55,10 +55,9 @@ public class HotelesActivity extends AppCompatActivity {
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
+
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
-
-
 
     }
 
@@ -66,7 +65,7 @@ public class HotelesActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_hoteles, menu);
+        getMenuInflater().inflate(R.menu.menu_sitios_turisticos, menu);
         return true;
     }
 
@@ -80,30 +79,30 @@ public class HotelesActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         switch (id){
             case R.id.mCerrar:
-                intent=new Intent(HotelesActivity.this,LoginActivity.class);
+                intent=new Intent(SitiosTuristicosActivity.this,LoginActivity.class);
                 startActivity(intent);
                 finish();
                 break;
-            case R.id.mPrincipal:
-                intent= new Intent(HotelesActivity.this,MainActivity.class);
+            case R.id.mHoteles:
+                intent= new Intent(SitiosTuristicosActivity.this,HotelesActivity.class);
                 intent.putExtra("username",username);
                 intent.putExtra("correo",correo);
                 startActivity(intent);
                 break;
             case R.id.mBares:
-                intent= new Intent(HotelesActivity.this,BaresActivity.class);
+                intent= new Intent(SitiosTuristicosActivity.this,BaresActivity.class);
                 intent.putExtra("username",username);
                 intent.putExtra("correo",correo);
                 startActivity(intent);
                 break;
-            case R.id.mSitios:
-                intent= new Intent(HotelesActivity.this,SitiosTuristicosActivity.class);
+            case R.id.mPrincipal:
+                intent= new Intent(SitiosTuristicosActivity.this,MainActivity.class);
                 intent.putExtra("username",username);
                 intent.putExtra("correo",correo);
                 startActivity(intent);
                 break;
             case R.id.mPerfil:
-                intent= new Intent(HotelesActivity.this,PerfilActivity.class);
+                intent= new Intent(SitiosTuristicosActivity.this,PerfilActivity.class);
                 intent.putExtra("username",username);
                 intent.putExtra("correo",correo);
                 startActivity(intent);
@@ -117,7 +116,6 @@ public class HotelesActivity extends AppCompatActivity {
     /**
      * A placeholder fragment containing a simple view.
      */
-
 
     /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
@@ -133,12 +131,13 @@ public class HotelesActivity extends AppCompatActivity {
         public Fragment getItem(int position) {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
-            //return PlaceholderFragment.newInstance(position + 1);
             switch (position){
-                case 0:HotelUnoFragment tab1=new HotelUnoFragment();
+                case 0:SitiosUnoFragment tab1=new SitiosUnoFragment();
                     return tab1;
-                case 1: HotelDosFragment tab2 = new HotelDosFragment();
+                case 1: SitiosDosFragment tab2 = new SitiosDosFragment();
                     return tab2;
+                case 2:SitiosTresFragment tab3=new SitiosTresFragment();
+                    return tab3;
                 default:return null;
             }
         }
@@ -146,16 +145,18 @@ public class HotelesActivity extends AppCompatActivity {
         @Override
         public int getCount() {
             // Show 3 total pages.
-            return 2;
+            return 3;
         }
 
         @Override
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return getResources().getString(R.string.hotel1);
+                    return getResources().getString(R.string.sitio1);
                 case 1:
-                    return "Hotel La Colina";
+                    return "Emblase";
+                case 2:
+                    return getResources().getString(R.string.sitio3);
             }
             return null;
         }

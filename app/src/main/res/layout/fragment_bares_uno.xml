@@ -2,10 +2,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.andersonroman.sanvicenteturistico.HotelDosFragment">
+    tools:context="com.andersonroman.sanvicenteturistico.BaresUnoFragment">
 
     <!-- TODO: Update blank fragment layout -->
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -21,16 +20,16 @@
                 android:layout_height="wrap_content"
                 android:textSize="30sp"
                 android:gravity="center"
-                android:text="@string/hotel2" />
+                android:text="@string/bar1" />
             <ImageView
                 android:layout_width="300dp"
                 android:layout_height="300dp"
-                android:src="@drawable/lacolina"/>
+                android:src="@drawable/ibiza"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
-                android:text="Si quieres sentirte como en case Hotel la Colina debe ser tu eleccion, encuentranos en la av 20 de julio N°26 A 30."/>
+                android:text="Bar en San Vicente para disfrutar un rato agradable con los amigos, ubicado en el centro comercial bulevar del parque"/>
         </LinearLayout>
 
     </ScrollView>

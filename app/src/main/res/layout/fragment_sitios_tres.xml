@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.andersonroman.sanvicenteturistico.HotelDosFragment">
+    tools:context="com.andersonroman.sanvicenteturistico.SitiosTresFragment">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -21,16 +21,17 @@
                 android:layout_height="wrap_content"
                 android:textSize="30sp"
                 android:gravity="center"
-                android:text="@string/hotel2" />
+                android:text="@string/sitio3" />
             <ImageView
                 android:layout_width="300dp"
                 android:layout_height="300dp"
-                android:src="@drawable/lacolina"/>
+                android:src="@drawable/cascada"
+                />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
-                android:text="Si quieres sentirte como en case Hotel la Colina debe ser tu eleccion, encuentranos en la av 20 de julio N°26 A 30."/>
+                android:text="Cascada de Los Cachos o Corrientes, caída de 60 metros de altura"/>
         </LinearLayout>
 
     </ScrollView>

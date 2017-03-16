@@ -12,6 +12,7 @@ import static com.andersonroman.sanvicenteturistico.R.string.username;
 public class MainActivity extends AppCompatActivity {
 
     String username, correo;
+    Intent intent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,15 +37,33 @@ public class MainActivity extends AppCompatActivity {
 
         switch (id){
             case R.id.mCerrar:
-                Intent intent=new Intent(MainActivity.this,LoginActivity.class);
+                intent=new Intent(MainActivity.this,LoginActivity.class);
                 startActivity(intent);
                 finish();
                 break;
+            case R.id.mHoteles:
+                intent= new Intent(MainActivity.this,HotelesActivity.class);
+                intent.putExtra("username",username);
+                intent.putExtra("correo",correo);
+                startActivity(intent);
+                break;
+            case R.id.mBares:
+                intent= new Intent(MainActivity.this,BaresActivity.class);
+                intent.putExtra("username",username);
+                intent.putExtra("correo",correo);
+                startActivity(intent);
+                break;
+            case R.id.mSitios:
+                intent= new Intent(MainActivity.this,SitiosTuristicosActivity.class);
+                intent.putExtra("username",username);
+                intent.putExtra("correo",correo);
+                startActivity(intent);
+                break;
             case R.id.mPerfil:
-                Intent intent1= new Intent(MainActivity.this,PerfilActivity.class);
-                intent1.putExtra("username",username);
-                intent1.putExtra("correo",correo);
-                startActivity(intent1);
+                intent= new Intent(MainActivity.this,PerfilActivity.class);
+                intent.putExtra("username",username);
+                intent.putExtra("correo",correo);
+                startActivity(intent);
                 finish();
                 break;
         }

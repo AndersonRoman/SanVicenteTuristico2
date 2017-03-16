@@ -1,7 +1,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.andersonroman.sanvicenteturistico.HotelesActivity">
+    tools:context="com.andersonroman.sanvicenteturistico.SitiosTuristicosActivity">
     <item
         android:id="@+id/mPerfil"
         android:title="@string/miperfil"
@@ -11,13 +11,14 @@
         android:title="Principal"
         />
     <item
+        android:id="@+id/mHoteles"
+        android:title="Hoteles"
+        />
+    <item
         android:id="@+id/mBares"
         android:title="Bares"
         />
-    <item
-        android:id="@+id/mSitios"
-        android:title="Sitios turísticos"
-        />
+
     <item
         android:id="@+id/mCerrar"
         android:title="@string/cerrar"
