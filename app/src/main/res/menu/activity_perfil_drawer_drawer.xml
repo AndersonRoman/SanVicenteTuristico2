@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_hotel"
+            android:icon="@drawable/ic_local_hotel"
+            android:title="Hoteles" />
+        <item
+            android:id="@+id/nav_bares"
+            android:icon="@drawable/ic_local_bar"
+            android:title="Bares" />
+        <item
+            android:id="@+id/nav_sitios"
+            android:icon="@drawable/ic_sitios"
+            android:title="Sitios Turísticos" />
+        <item
+            android:id="@+id/nav_productos"
+            android:icon="@drawable/ic_productos"
+            android:title="Productos agrícolas"
+            />
+    </group>
+
+    <item android:title="Sesión">
+        <menu>
+            <item
+                android:id="@+id/nav_principal"
+                android:icon="@drawable/ic_home"
+                android:title="Principal" />
+            <item
+                android:id="@+id/nav_cerrar"
+                android:icon="@drawable/ic_cerrar"
+                android:title="Cerrar sesión" />
+        </menu>
+    </item>
+
+</menu>

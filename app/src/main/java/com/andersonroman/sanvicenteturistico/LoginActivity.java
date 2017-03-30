@@ -47,7 +47,7 @@ public class LoginActivity extends AppCompatActivity {
                 if (!(eUsername.getText().toString().isEmpty() || eContrasena.getText().toString().isEmpty())) {
                     if(!(username.equals("")||password.equals(""))) {
                         if (eUsername.getText().toString().equals(username) && eContrasena.getText().toString().equals(password)) {
-                            Intent intent2 = new Intent(LoginActivity.this, MainActivity.class);
+                            Intent intent2 = new Intent(LoginActivity.this, MainDrawerActivity.class);
                             intent2.putExtra("username", username);
                             intent2.putExtra("correo", correo);
                             startActivity(intent2);

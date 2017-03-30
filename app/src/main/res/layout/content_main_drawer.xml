@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.andersonroman.sanvicenteturistico.MainDrawerActivity"
+    tools:showIn="@layout/app_bar_main_drawer">
+
+    <ScrollView
+        android:layout_width="354dp"
+        android:layout_height="514dp"
+        tools:layout_editor_absoluteY="8dp"
+        tools:layout_editor_absoluteX="-1dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="150dp"
+                android:src="@drawable/bandera"/>
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="150dp"
+                android:src="@drawable/escudo"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="San Vicente Ferrer, un pueblo anclado en las estribaciones de una colina y cuya fundación data del siglo XVIII, época en la que después de los sucesos de las explotaciones mineras (A través del mazamorreo), se empieza a gestar el poblamiento espontáneo del sitio entonces reconocido como Minerales de Castrellón, El Salado o San Juan. La congregación de vecinos se dio por la presencia de colonos y posteriormente arrieros que abrieron los caminos de Antioquia; por estas tierras pasaban provenientes del nordeste y el oriente lejano, dirigiéndose a Medellín o la capital del país, siendo éste el lugar de confluencia de dos caminos. Al llegar a este paraje, la cima de esta hermosa colina, invitaba al descanso y sosiego de mulas y arrieros quienes allí toldaban propiciando, a través del tiempo, la construcción de fondas y posadas camineras." />
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>
+</android.support.constraint.ConstraintLayout>

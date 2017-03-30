@@ -5,6 +5,22 @@
         android:id="@+id/mMain"
         android:title="@string/principal"/>
     <item
+        android:id="@+id/mHoteles"
+        android:title="Hoteles"
+        />
+
+    <item
+        android:id="@+id/mBares"
+        android:title="Bares"/>
+    <item
+        android:id="@+id/mSitios"
+        android:title="Sitios turísticos"
+        />
+    <item
+        android:id="@+id/mProductos"
+        android:title="Productos agrícolas"
+        />
+    <item
         android:id="@+id/mCerrar"
         android:title="@string/cerrar"
         />

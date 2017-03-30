@@ -18,7 +18,10 @@
         android:id="@+id/mBares"
         android:title="Bares"
         />
-
+    <item
+        android:id="@+id/mProductos"
+        android:title="Productos agrícolas"
+        />
     <item
         android:id="@+id/mCerrar"
         android:title="@string/cerrar"

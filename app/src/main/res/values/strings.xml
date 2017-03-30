@@ -37,4 +37,11 @@
     <string name="sitio3">Cascada de los cachos</string>
     <string name="sitio1">Piedra Peñolsito</string>
     <string name="sitio2">Embalse</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_bares_drawer">BaresDrawerActivity</string>
+    <string name="title_activity_sitios_drawer">SitiosDrawerActivity</string>
+    <string name="title_activity_main_drawer">MainDrawerActivity</string>
+    <string name="title_activity_perfil_drawer">PerfilDrawerActivity</string>
+    <string name="title_activity_lista_drawer">ListaDrawerActivity</string>
+    <string name="title_activity_productos_drawer">ProductosDrawerActivity</string>
 </resources>

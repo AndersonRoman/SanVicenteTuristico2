@@ -20,6 +20,10 @@
         android:title="Sitios turísticos"
         />
     <item
+        android:id="@+id/mProductos"
+        android:title="Productos agrícolas"
+        />
+    <item
         android:id="@+id/mCerrar"
         android:title="@string/cerrar"
         />

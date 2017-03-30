@@ -1,5 +1,6 @@
 package com.andersonroman.sanvicenteturistico;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -12,28 +13,38 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
-public class DrawerActivity extends AppCompatActivity
+public class ProductosDrawerActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+
+
+    String username, correo;
+    Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
+        this.setTitle("Productos");
+        Bundle extras=getIntent().getExtras();
+        username=extras.getString("username");
+        correo=extras.getString("correo");
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_drawer);
+        setContentView(R.layout.activity_productos_drawer);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
-        });*/
+        });
 
-
-        //me permite correr la barra
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -42,6 +53,14 @@ public class DrawerActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+/*
+        TextView tnombre,tcorreo;
+        View perfil= navigationView.getHeaderView(0);
+        tnombre=(TextView) perfil.findViewById(R.id.navNombre);
+        tcorreo=(TextView) perfil.findViewById(R.id.navCorreo);
+        tnombre.setText(username);
+        tcorreo.setText(correo);*/
     }
 
     @Override
@@ -57,7 +76,7 @@ public class DrawerActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.drawer, menu);
+        getMenuInflater().inflate(R.menu.productos_drawer, menu);
         return true;
     }
 

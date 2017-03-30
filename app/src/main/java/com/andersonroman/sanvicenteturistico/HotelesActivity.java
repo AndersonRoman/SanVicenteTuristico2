@@ -45,6 +45,10 @@ public class HotelesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hoteles);
 
+        Bundle extras=getIntent().getExtras();
+        username=extras.getString("username");
+        correo=extras.getString("correo");
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);//lo traigo
         setSupportActionBar(toolbar);//lo pongo
         // Create the adapter that will return a fragment for each of the three
@@ -89,18 +93,21 @@ public class HotelesActivity extends AppCompatActivity {
                 intent.putExtra("username",username);
                 intent.putExtra("correo",correo);
                 startActivity(intent);
+                finish();
                 break;
             case R.id.mBares:
                 intent= new Intent(HotelesActivity.this,BaresActivity.class);
                 intent.putExtra("username",username);
                 intent.putExtra("correo",correo);
                 startActivity(intent);
+                finish();
                 break;
             case R.id.mSitios:
                 intent= new Intent(HotelesActivity.this,SitiosTuristicosActivity.class);
                 intent.putExtra("username",username);
                 intent.putExtra("correo",correo);
                 startActivity(intent);
+                finish();
                 break;
             case R.id.mPerfil:
                 intent= new Intent(HotelesActivity.this,PerfilActivity.class);

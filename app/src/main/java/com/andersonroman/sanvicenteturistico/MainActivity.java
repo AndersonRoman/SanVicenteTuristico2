@@ -5,13 +5,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
-
-import static com.andersonroman.sanvicenteturistico.R.string.username;
 
 public class MainActivity extends AppCompatActivity {
 
-    String username, correo;
+    String username="Anderson", correo="ander-353@hotmail.com";
     Intent intent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,8 +16,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Bundle extras=getIntent().getExtras();
-        username=extras.getString("username");
-        correo=extras.getString("correo");
+        //username=extras.getString("username");
+        //correo=extras.getString("correo");
         //Toast.makeText(this,"OnCreate",Toast.LENGTH_SHORT).show();//cuando aparesca un error
     }
 
@@ -42,22 +39,25 @@ public class MainActivity extends AppCompatActivity {
                 finish();
                 break;
             case R.id.mHoteles:
-                intent= new Intent(MainActivity.this,HotelesActivity.class);
+                intent= new Intent(MainActivity.this,HotelesDrawerActivity.class);
                 intent.putExtra("username",username);
                 intent.putExtra("correo",correo);
                 startActivity(intent);
+                finish();
                 break;
             case R.id.mBares:
-                intent= new Intent(MainActivity.this,BaresActivity.class);
+                intent= new Intent(MainActivity.this,BaresDrawerActivity.class);
                 intent.putExtra("username",username);
                 intent.putExtra("correo",correo);
                 startActivity(intent);
+                finish();
                 break;
             case R.id.mSitios:
-                intent= new Intent(MainActivity.this,SitiosTuristicosActivity.class);
+                intent= new Intent(MainActivity.this,SitiosDrawerActivity.class);
                 intent.putExtra("username",username);
                 intent.putExtra("correo",correo);
                 startActivity(intent);
+                finish();
                 break;
             case R.id.mPerfil:
                 intent= new Intent(MainActivity.this,PerfilActivity.class);
