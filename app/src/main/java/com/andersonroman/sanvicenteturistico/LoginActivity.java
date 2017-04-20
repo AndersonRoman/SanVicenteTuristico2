@@ -1,6 +1,7 @@
 package com.andersonroman.sanvicenteturistico;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,13 +18,35 @@ public class LoginActivity extends AppCompatActivity {
     TextView tRegistrese;
     String username="",password="",correo;
     Intent intent;
+
+    SharedPreferences prefs;
+    SharedPreferences.Editor editor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-       /** Bundle extras=getIntent().getExtras();
+        prefs=getSharedPreferences("MisPreferencias",MODE_PRIVATE);
+        editor=prefs.edit();
 
+        username=prefs.getString("username","noname");
+        password=prefs.getString("contrasena","nopass");
+        correo=prefs.getString("correo","nocorreo");
+
+        Log.d("login",String.valueOf(prefs.getInt("login",-1)));
+        Log.d("username",username);
+        Log.d("password",password);
+        Log.d("correo",correo);
+
+        if (prefs.getInt("login",-1)==1){
+            Intent intent2 = new Intent(LoginActivity.this, MainDrawerActivity.class);
+            intent2.putExtra("username", username);
+            intent2.putExtra("correo", correo);
+            startActivity(intent2);
+            finish();
+        }//1 hay alguien logueado, -1 no hay
+/*
+       Bundle extras=getIntent().getExtras();
         username=extras.getString("username");
         password=extras.getString("contrasena");
         correo=extras.getString("correo");*/
@@ -47,6 +70,11 @@ public class LoginActivity extends AppCompatActivity {
                 if (!(eUsername.getText().toString().isEmpty() || eContrasena.getText().toString().isEmpty())) {
                     if(!(username.equals("")||password.equals(""))) {
                         if (eUsername.getText().toString().equals(username) && eContrasena.getText().toString().equals(password)) {
+
+                            editor.putInt("login",1);
+                            editor.commit();
+
+
                             Intent intent2 = new Intent(LoginActivity.this, MainDrawerActivity.class);
                             intent2.putExtra("username", username);
                             intent2.putExtra("correo", correo);
@@ -67,6 +95,11 @@ public class LoginActivity extends AppCompatActivity {
             username=data.getExtras().getString("username");
             password=data.getExtras().getString("contrasena");
             correo=data.getExtras().getString("correo");
+
+            editor.putString("username",username);
+            editor.putString("contrasena",password);
+            editor.putString("correo",correo);
+
             Log.d("username",password);
         }
         else{

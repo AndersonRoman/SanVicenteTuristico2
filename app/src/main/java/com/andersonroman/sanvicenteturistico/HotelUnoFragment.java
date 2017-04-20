@@ -70,9 +70,9 @@ public class HotelUnoFragment extends Fragment implements OnMapReadyCallback {
         mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
 
-        LatLng udea=new LatLng(6.266953, -75.569111);
-        mMap.addMarker(new MarkerOptions().position(udea).title("Universidad de Antioquia").icon(BitmapDescriptorFactory.fromResource(R.drawable.libro)).snippet("Nuestra Alma Mater"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(udea,10));
+        LatLng udea=new LatLng(6.282101, -75.331699);
+        mMap.addMarker(new MarkerOptions().position(udea).title("Hotel Santa Rosa").snippet("Disfruta con nosotros"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(udea,17));
     }
 
     @Override

@@ -35,6 +35,7 @@ public class RegistroActivity extends AppCompatActivity {
                         intent.putExtra("username", eRUsername.getText().toString());
                         intent.putExtra("contrasena", eRContrasena.getText().toString());
                         intent.putExtra("correo", eRCorreo.getText().toString());
+
                         setResult(RESULT_OK, intent);
                         finish();
                     } else {

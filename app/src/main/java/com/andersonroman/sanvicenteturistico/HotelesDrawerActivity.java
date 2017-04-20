@@ -1,6 +1,7 @@
 package com.andersonroman.sanvicenteturistico;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -16,6 +17,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class HotelesDrawerActivity extends AppCompatActivity
@@ -31,6 +33,10 @@ public class HotelesDrawerActivity extends AppCompatActivity
     String username, correo;
     Intent intent;
     TextView tnombre,tcorreo;
+    ImageView imageView;
+
+    SharedPreferences prefs;
+    SharedPreferences.Editor editor;
     /////////////////////////////////////////////////////////
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +49,10 @@ public class HotelesDrawerActivity extends AppCompatActivity
         setSupportActionBar(toolbar);//lo pongo
 
         ///////////////////////////////////////
+
+        prefs=getSharedPreferences("MisPreferencias",MODE_PRIVATE);
+        editor=prefs.edit();
+
         Bundle extras=getIntent().getExtras();
         username=extras.getString("username");
         correo=extras.getString("correo");
@@ -68,12 +78,14 @@ public class HotelesDrawerActivity extends AppCompatActivity
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
         /////////////////////////////////////////////////
-/*
+
         View perfil= navigationView.getHeaderView(0);
         tnombre=(TextView) perfil.findViewById(R.id.navNombre);
         tcorreo=(TextView) perfil.findViewById(R.id.navCorreo);
+        imageView=(ImageView)perfil.findViewById(R.id.imageView);
+        imageView.setImageResource(R.drawable.perfil2);
         tnombre.setText(username);
-        tcorreo.setText(correo);*/
+        tcorreo.setText(correo);
     }
 
 
@@ -96,6 +108,8 @@ public class HotelesDrawerActivity extends AppCompatActivity
         switch (id){
             case R.id.mCerrar:
                 intent=new Intent(HotelesDrawerActivity.this,LoginActivity.class);
+                editor.putInt("login",-1);
+                editor.commit();
                 startActivity(intent);
                 finish();
                 break;
@@ -237,6 +251,8 @@ public class HotelesDrawerActivity extends AppCompatActivity
 
         }else if (id == R.id.nav_cerrar) {
             intent=new Intent(HotelesDrawerActivity.this,LoginActivity.class);
+            editor.putInt("login",-1);
+            editor.commit();
             startActivity(intent);
             finish();
 

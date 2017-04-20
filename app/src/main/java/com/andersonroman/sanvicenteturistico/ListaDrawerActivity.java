@@ -2,6 +2,7 @@ package com.andersonroman.sanvicenteturistico;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
@@ -40,6 +41,9 @@ public class ListaDrawerActivity extends AppCompatActivity
     String username, correo;
     Intent intent;
 
+    SharedPreferences prefs;
+    SharedPreferences.Editor editor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -49,6 +53,14 @@ public class ListaDrawerActivity extends AppCompatActivity
         setContentView(R.layout.activity_lista_drawer);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+
+        prefs=getSharedPreferences("MisPreferencias",MODE_PRIVATE);
+        editor=prefs.edit();
+
+        Bundle extras=getIntent().getExtras();
+        username=extras.getString("username");
+        correo=extras.getString("correo");
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -82,13 +94,16 @@ public class ListaDrawerActivity extends AppCompatActivity
             }
         });
 
-/*
+
         TextView tnombre,tcorreo;
+        ImageView imageView;
         View perfil= navigationView.getHeaderView(0);
         tnombre=(TextView) perfil.findViewById(R.id.navNombre);
         tcorreo=(TextView) perfil.findViewById(R.id.navCorreo);
+        imageView=(ImageView)perfil.findViewById(R.id.imageView);
+        imageView.setImageResource(R.drawable.perfil2);
         tnombre.setText(username);
-        tcorreo.setText(correo);*/
+        tcorreo.setText(correo);
     }
 
     class Adapter extends ArrayAdapter<Lista_Entrada> {
@@ -173,6 +188,8 @@ public class ListaDrawerActivity extends AppCompatActivity
 
         }else if (id == R.id.nav_cerrar) {
             intent=new Intent(ListaDrawerActivity.this,LoginActivity.class);
+            editor.putInt("login",-1);
+            editor.commit();
             startActivity(intent);
             finish();
 

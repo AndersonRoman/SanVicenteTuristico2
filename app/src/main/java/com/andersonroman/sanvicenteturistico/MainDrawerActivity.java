@@ -1,6 +1,7 @@
 package com.andersonroman.sanvicenteturistico;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -13,6 +14,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MainDrawerActivity extends AppCompatActivity
@@ -20,6 +22,9 @@ public class MainDrawerActivity extends AppCompatActivity
 
     String username="Anderson", correo="ander-353@hotmail.com";
     Intent intent;
+
+    SharedPreferences prefs;
+    SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,9 +36,12 @@ public class MainDrawerActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        prefs=getSharedPreferences("MisPreferencias",MODE_PRIVATE);
+        editor=prefs.edit();
+
         Bundle extras=getIntent().getExtras();
-        //username=extras.getString("username");
-        //correo=extras.getString("correo");
+        username=extras.getString("username");
+        correo=extras.getString("correo");
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -45,12 +53,15 @@ public class MainDrawerActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        /*TextView tnombre,tcorreo;
+        TextView tnombre,tcorreo;
+        ImageView imageView;
         View perfil= navigationView.getHeaderView(0);
         tnombre=(TextView) perfil.findViewById(R.id.navNombre);
         tcorreo=(TextView) perfil.findViewById(R.id.navCorreo);
+        imageView=(ImageView)perfil.findViewById(R.id.imageView);
+        imageView.setImageResource(R.drawable.perfil2);
         tnombre.setText(username);
-        tcorreo.setText(correo);*/
+        tcorreo.setText(correo);
     }
 
     @Override
@@ -67,6 +78,8 @@ public class MainDrawerActivity extends AppCompatActivity
         switch (id){
             case R.id.mCerrar:
                 intent=new Intent(MainDrawerActivity.this,LoginActivity.class);
+                editor.putInt("login",-1);
+                editor.commit();
                 startActivity(intent);
                 finish();
                 break;
@@ -161,6 +174,8 @@ public class MainDrawerActivity extends AppCompatActivity
 
         }else if (id == R.id.nav_cerrar) {
             intent=new Intent(MainDrawerActivity.this,LoginActivity.class);
+            editor.putInt("login",-1);
+            editor.commit();
             startActivity(intent);
             finish();
 

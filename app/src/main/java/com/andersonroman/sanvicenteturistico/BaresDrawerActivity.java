@@ -1,6 +1,7 @@
 package com.andersonroman.sanvicenteturistico;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -18,6 +19,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class BaresDrawerActivity extends AppCompatActivity
@@ -33,6 +35,9 @@ public class BaresDrawerActivity extends AppCompatActivity
 
     String username, correo;
     Intent intent;
+
+    SharedPreferences prefs;
+    SharedPreferences.Editor editor;
     ///////////////////////////////////////////////////////////
 
     @Override
@@ -45,6 +50,8 @@ public class BaresDrawerActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        prefs=getSharedPreferences("MisPreferencias",MODE_PRIVATE);
+        editor=prefs.edit();
 
         Bundle extras=getIntent().getExtras();
         username=extras.getString("username");
@@ -68,14 +75,18 @@ public class BaresDrawerActivity extends AppCompatActivity
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
 
-/*
+
         TextView tnombre,tcorreo;
+        ImageView imageView;
+
         View perfil= navigationView.getHeaderView(0);
         tnombre=(TextView) perfil.findViewById(R.id.navNombre);
         tcorreo=(TextView) perfil.findViewById(R.id.navCorreo);
+        imageView=(ImageView)perfil.findViewById(R.id.imageView);
+        imageView.setImageResource(R.drawable.perfil2);
         tnombre.setText(username);
         tcorreo.setText(correo);
-*/
+
     }
 
     @Override
@@ -97,6 +108,8 @@ public class BaresDrawerActivity extends AppCompatActivity
             case R.id.mCerrar:
                 intent=new Intent(BaresDrawerActivity.this,LoginActivity.class);
                 startActivity(intent);
+                editor.putInt("login",-1);
+                editor.commit();
                 finish();
                 break;
             case R.id.mHoteles:
@@ -241,6 +254,8 @@ public class BaresDrawerActivity extends AppCompatActivity
 
         }else if (id == R.id.nav_cerrar) {
             intent=new Intent(BaresDrawerActivity.this,LoginActivity.class);
+            editor.putInt("login",-1);
+            editor.commit();
             startActivity(intent);
             finish();
 

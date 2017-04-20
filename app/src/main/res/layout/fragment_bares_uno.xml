@@ -30,6 +30,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
                 android:text="Bar en San Vicente para disfrutar un rato agradable con los amigos, ubicado en el centro comercial bulevar del parque"/>
+            <com.google.android.gms.maps.MapView
+                android:id="@+id/map"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
+                android:layout_width="match_parent"
+                android:layout_height="300dp" />
         </LinearLayout>
 
     </ScrollView>

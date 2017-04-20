@@ -13,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class ProductosDrawerActivity extends AppCompatActivity
@@ -36,14 +37,7 @@ public class ProductosDrawerActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -54,13 +48,16 @@ public class ProductosDrawerActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-/*
+
         TextView tnombre,tcorreo;
+        ImageView imageView;
         View perfil= navigationView.getHeaderView(0);
         tnombre=(TextView) perfil.findViewById(R.id.navNombre);
         tcorreo=(TextView) perfil.findViewById(R.id.navCorreo);
+        imageView=(ImageView)perfil.findViewById(R.id.imageView);
+        imageView.setImageResource(R.drawable.perfil2);
         tnombre.setText(username);
-        tcorreo.setText(correo);*/
+        tcorreo.setText(correo);
     }
 
     @Override

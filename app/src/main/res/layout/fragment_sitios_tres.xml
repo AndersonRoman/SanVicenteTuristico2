@@ -32,6 +32,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
                 android:text="Cascada de Los Cachos o Corrientes, caída de 60 metros de altura"/>
+            <com.google.android.gms.maps.MapView
+                android:id="@+id/map"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
+                android:layout_width="match_parent"
+                android:layout_height="300dp" />
         </LinearLayout>
 
     </ScrollView>
